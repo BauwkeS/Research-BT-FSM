@@ -70,15 +70,18 @@ Before we begin, I want to give some basic information on the two data structure
         - **Kinds of composite nodes:**
             - **Selector:** It will return 'success' back to the parent node if any of the children node tasks succeed. If one child fails, it will continue to the next child. Only returns 'failure' back if all children tasks fail.
               
-             <img width="379" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/4e3850c6-553b-496f-a2e8-4f7bea16dfa2">
+             <img width="379" height="154" alt="BT_1" src="https://github.com/user-attachments/assets/28ba0321-7c5a-452e-88e1-c1d90b9748b1" />
+
 
             - **Sequence:** Returns 'failure' if any of the children fail and returns 'success' if all children pass. Depending on the program if the sequence has an order: it can add more unpredictability to an AI character in cases where there is not a clear order. Or when there is an order, sequences can be set up to play a predicted sequence for the AI. For example, in Unreal (5.2.1) sequences children activate from left to right.
               
-             <img width="381" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/27a6f3f3-d25d-4a3e-b0fa-1f44d735b5fb">
+             <img width="381" height="146" alt="BT_2" src="https://github.com/user-attachments/assets/b0a31cf8-bc6d-46fe-aabb-7ee676d2e988" />
+
 
             - **Parallel:** Acts similar to the sequence node. Also returns 'failure' if any of the children fail and returns 'success' if all children pass. The difference is that instead of going through each child at one time, all children nodes will be activated at the same time. This also means: if one child fails, it will stop all running tasks and send back 'failure'. Unilaterally terminating all threads could cause problems. Leaving the game inconsistent or failing to free the thread. A solution for this: termination of all threads is a request rather than a direct termination. For this to work, all tasks need to be able to receive a termination request and be able to clean up after themselves.
               
-              <img width="170" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/1a305325-60ee-4e16-929c-ec148a48401c">
+              <img width="170" height="111" alt="BT_3" src="https://github.com/user-attachments/assets/214a7b6a-745d-4ea0-aaa9-63b37bf48a3f" />
+
 
     - **Leaf Node:**
         - **Has:** one parent ; no child
@@ -86,11 +89,13 @@ Before we begin, I want to give some basic information on the two data structure
         - **Kinds of leaf nodes:**
             - **Condition node:** Checks whether a certain condition has been met or not.
               
-              <img width="176" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/ac1f5863-3e33-4348-a2da-c987f15ce227">
+              <img width="176" height="66" alt="BT_4" src="https://github.com/user-attachments/assets/83cebb43-9a69-4da7-b707-34963d310612" />
+
 
             - **Action node:** Performs computations to change a state.
               
-              <img width="165" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/692554ce-2298-47a0-a066-3d1307ff2c7c">
+              <img width="165" height="94" alt="BT_5" src="https://github.com/user-attachments/assets/d36b359c-a203-4e41-bd2b-1866510730a4" />
+
 
     - **Decorator Node:**
         - **Has:** one parent ; one child
@@ -98,14 +103,16 @@ Before we begin, I want to give some basic information on the two data structure
         
           *[Symbol on graph: ◇]*
           
-          <img width="251" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/b930d8b7-ab9e-4c5e-986b-6f36ed674b94">
+          <img width="251" height="289" alt="BT_6" src="https://github.com/user-attachments/assets/a14f8764-015d-44d3-b540-48d949992fda" />
+
 
         - **Kind of decorator nodes:**
             - **Inverter:** Inverts or negates the result of the child node.
             - **Succeeder:** Always returns success to the parent node, irrespective of what the child node returned. Can be used for cases where you want to process a branch where failure is expected or anticipated, but you don't want to abandon processing of a sequence that that branch/node sits on.
             - **Repeater:** Reprocess the child node each time it returns a result. This makes the tree runs continuously and can also be optionally set for a number of times to after return back to the parent node.
               
-              <img width="111" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/96332de8-3a71-4524-8497-5dfe96ef2cd1">
+              <img width="111" height="175" alt="BT_7" src="https://github.com/user-attachments/assets/c3ddb228-c897-477f-983c-01e62a7e7ac8" />
+
 
             - **Repeat until fail:** It's like a repeater, but it will repeat until the child returns 'failure'. When it returns 'failure', the decorator node sends a 'success' to the parent.
 
@@ -132,7 +139,8 @@ Before we begin, I want to give some basic information on the two data structure
 - **A picture of a BT as an example:**
     - A simple BT to show how to open a door:
 
-<img width="517" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/d782190b-86d0-4d3d-8735-c0333332d4ea">
+<img width="517" height="228" alt="BT_8" src="https://github.com/user-attachments/assets/48ef5a7f-5321-48c3-a7c8-d629ffaab81c" />
+
 
 ---
 
@@ -142,7 +150,8 @@ Before we begin, I want to give some basic information on the two data structure
     - A state machine with a set number of states.
     - Example:
       
-      <img width="377" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/0c8435dd-1cce-4945-97d2-466a712d3818">
+      <img width="377" height="253" alt="FSM_1" src="https://github.com/user-attachments/assets/6df1460c-dc43-4c99-957c-3f424c3352dd" />
+
 
 
 - **What is a state machine?:**
@@ -153,14 +162,16 @@ Before we begin, I want to give some basic information on the two data structure
     - Each state can/has its own actions, behaviors and/or variables.
     - States are held together by transitions.
       
-      <img width="101" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/85a7fd71-0faa-414f-b945-883d194c7f5b">
+      <img width="101" height="65" alt="FSM_2" src="https://github.com/user-attachments/assets/37275efa-1132-4fcf-970b-0bf08eae1263" />
+
 
 
 - **What are transitions?:**
     - Each transition in a FSM leads from one state to another: the target state, and has a set of conditions.
     - if the FSM/game determines that the conditions of the transitions are met, it will trigger. It triggers a change from the state it was in to the new state found from the transition.
       
-      <img width="173" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/78bf828e-8663-49c5-8001-7018c8d323c9">
+      <img width="173" height="78" alt="FSM_3" src="https://github.com/user-attachments/assets/92e7a94e-cd0f-4856-b8f8-a80d446fdaba" />
+
 
 
 - **Downfalls for using a FSM:**
@@ -195,11 +206,12 @@ I will show 2 examples of a BT in a FSM and a FSM in a BT. Source is: https://me
 
         - **Endless Sequenced State Machine:** Similar to the sequenced state machine, it goes through the states in order from start to finish. However, when all states have been completed, it starts again from the initial state and continues indefinitely in a loop. It cannot be interrupted by any other state unless a prioritized state overrides its current state.
  
-![image](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/882869da-49b2-4654-9dc6-aa670824c03c)
+<img width="1067" height="646" alt="BTFSM_1" src="https://github.com/user-attachments/assets/c328cb82-3d31-417d-bc93-fa6f01a721b6" />
+
     
 - **Example of usage:**
 
-![1_0tZJsd6X-IvoVUsaSBjksg](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/d93c7b12-7275-4038-9d9f-9d3ddd5d1b20)
+![BTFSM_2](https://github.com/user-attachments/assets/2bd8edeb-3933-4e50-9b36-aaf2eb520467)
 
 
 - **BT inside of a FSM:**
@@ -207,7 +219,7 @@ I will show 2 examples of a BT in a FSM and a FSM in a BT. Source is: https://me
     - However, the part of behavior tree that is actually implemented in this architecture is the selectors. Selectors create the structure that decides whether a state should be executed or not. Each state has its own enter and exit selectors, so if a condition needs to be used for the entry of two states, it does not need to be rewritten.
     - Additionally, the support for multiple selectors allows dozens of conditions to be added in a row, but it is beneficial to keep the conditions clear or concise to avoid it becoming a costly operation. Because one of the biggest disadvantages of the behavior tree pattern is that it constantly needs to check all conditions. It is not a problem at the top layers, but as the complexity increases, the cost begins to increase significantly.
 
-![1_OBcQQ1IU8FEj-HQgA2KgLA](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/a7f7561c-c1c7-4900-856a-8a6558664c0b)
+![BTFSM_3](https://github.com/user-attachments/assets/08adad37-24eb-4539-926a-b45e04ce813b)
 
 
 
@@ -219,7 +231,8 @@ I will take you through my project. A lot of code will be linked and explained h
 
 Open Unreal 5.2.1 and make a new blank project in C++. You can also use the third person project to already have basic movement, as I will not be going over that here. My project might look a little different in the character files, as I started from blank. I have also installed Rider as my preferred IDE. Feel free to use what you are comfortable with. I will be making my FSM in C++ inside of Unreal and using the integrated BT system.
 
-<img width="894" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/3d45838a-e97b-4851-bc85-f68275dde698">
+<img width="894" height="644" alt="project_1" src="https://github.com/user-attachments/assets/e3f5e802-2e3a-45e7-8275-d7f2f909512a" />
+
 
 ---
 
@@ -250,7 +263,7 @@ We will be making an animal AI with perception. Inside the BT, the animal will b
 
 - **This in a schematic form is:**
   
-<img width="317" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/20e460b8-0e6a-4454-a57c-f72d7fe3b77d">
+<img width="317" height="144" alt="IMPL_1" src="https://github.com/user-attachments/assets/269ffff7-461b-4c27-ad56-37369f56ff4a" />
 
 ---
 
@@ -258,7 +271,8 @@ We will be making an animal AI with perception. Inside the BT, the animal will b
 
 We will need multiple C++ classes. You can make these by going in your C++ folder in Unreal and pressing right click.
 
-<img width="370" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/51c4c98a-6147-4fc4-b841-b1055353ef76">
+<img width="370" height="75" alt="IMPL_2" src="https://github.com/user-attachments/assets/02e1ded3-c7b3-4a1c-9d5a-2c963f5c5fb9" />
+
 
 - **The following classes should be made:**
     - **NPC** : inheriting from Character : for your NPC class
@@ -280,15 +294,17 @@ We will go through what they need at another stage.
 - **Make a blueprint class based on your NPC C++ class**:
     - You can do this by right-clicking your C++ class.
       
-      ![image](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/1509eed3-453f-49c7-af85-a4dea1d7cabb)
+      <img width="502" height="427" alt="IMPL_3_1_1" src="https://github.com/user-attachments/assets/dc739c40-18bb-4436-873d-45dbc13a195f" />
+
 
     - Following the same assets I used, you can place a deer skeletal mesh in the NPC for visuals.
       
-      <img width="321" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/81b7cd60-584f-4ec2-8227-5fa3f0b6c97b">
+      <img width="321" height="90" alt="IMPL_3_1_2" src="https://github.com/user-attachments/assets/1f04d6df-6925-4ef5-bb97-d5d17f8b4856" />
+
 
     - Next open the blueprint and search for "Pawn" in the details. You will find a variable that says **"AI Controller Class"**, give this your own C++ made Controller called "NPC_AIController" from step 2.
  
-    ![image](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/796eb451-823f-4731-bb78-6d257b0b3c56)
+<img width="635" height="543" alt="IMPL_3_1_3" src="https://github.com/user-attachments/assets/d44b78e8-63eb-4f5e-98fb-e2d7326bcb57" />
 
 
 
@@ -301,7 +317,8 @@ We will add more later.
 - In a folder for your NPC, make a new blackboard for your NPC naming it **BB_NPC** .
     - You can find this in the following branch when you right click in your empty folder:
        
-    <img width="407" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/d114dbc2-a515-4ac2-b6d1-f63ac0b6a8ca">
+    <img width="407" height="133" alt="IMPL_3_2" src="https://github.com/user-attachments/assets/54a844fb-8d25-4b46-bdb2-4759081b3385" />
+
 
 ---
 
@@ -312,7 +329,8 @@ We will add more later.
 
 - Open it and make sure the blackboard got connected to the behavior tree in the details, if it did not: give the blackboard **BB_NPC** you just made in 3.1 in the details.
 
-    <img width="391" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/8e9a3082-da2e-413e-9b0e-5a17ff9a4707">
+    <img width="391" height="150" alt="IMPL_3_3" src="https://github.com/user-attachments/assets/6cef6569-2df6-4128-8c68-f08eb0cdf386" />
+
 
 ---
 **⍟ 4.3.2.1 Adding the BT to the NPC:**
@@ -321,18 +339,20 @@ We will add more later.
 - Add a **protected UPROPERTY that is a UBehaviorTree***
     - While being a UPROPERTY: we will be able to edit the value in the blueprint editor directly. Just make sure to give the correct info in our UPROPERTY to be able to do that.
       
-      <img width="561" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/cdbfccf5-89cf-4f7a-bb5c-bc80661bd0a0">
+      <img width="561" height="67" alt="IMPL_3_4_1" src="https://github.com/user-attachments/assets/2a30adbe-a323-4c90-9a8a-ba574f44e6e1" />
+
 
 - Then add a public function **GetbehaviorTree** and implement it in C++. This is just a standard getter to be used later.
 
-    <img width="252" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/c15f7ee3-6995-4aa2-9dbf-bd7e5a71a581">
-    <img width="283" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/65ef2815-9ba1-4056-97b8-1e6be6ec2267">
+    <img width="252" height="46" alt="IMPL_3_4_2" src="https://github.com/user-attachments/assets/c2487f1e-0f54-48be-81ca-d7cf21270f36" />
+    <img width="283" height="76" alt="IMPL_3_4_3" src="https://github.com/user-attachments/assets/bedac639-c2d6-4a7f-8c89-1caa2dd4a86d" />
 
 - **Before you continue don't forget to save and recompile your C++ code while Unreal is closed and open Unreal again after.**
 
 - Then open the **BP_NPC** again and search in the details for tree. You can now give the **BT_NPC** you created to the NPC through the C++ code you created.
 
-    <img width="319" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/312f4bc2-1f18-4352-9019-b0f913854cc0">
+    <img width="319" height="123" alt="IMPL_3_4_4" src="https://github.com/user-attachments/assets/dc245b71-65af-49fd-ba7b-f3ae233465f8" />
+
 
 
 
@@ -346,37 +366,44 @@ We will add more later.
     - Press right click and select **"Blueprint Class"**
     - Then search for: **"BTT_ask_BlueprintBase"** and make one called **"BTT_RoamingLocation"**
       
-      <img width="473" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/b9eeccb7-18b2-4221-9047-c77e2e827a02">
+      <img width="473" height="456" alt="IMPL_3_5_1" src="https://github.com/user-attachments/assets/2b6156e0-34d4-4358-be9d-189b6af9a068" />
+
 
 - After open the newly made **BTT_RoamingLocation**:
     - Add the following variables to the class:
         - Radius: [Float] : The radius in which a random location can be given back.
         - RandomLocationOut : [BlackboardKeySelector] : The blackboard-key which we will give the random location info to.
 
-      <img width="278" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/72a86e26-335a-4e89-afa3-6492c2c2ae1c">
+      <img width="278" height="150" alt="IMPL_3_5_2" src="https://github.com/user-attachments/assets/c9c05c27-df0a-417c-b3e5-dc0e59707955" />
+
 
     - Then **add the following graph**:
         - This is mostly self-explanatory. Gets the actor's location and gives back a new location that can be reached in the radius from that given location. After puts it in the given blackboard key selector.
       
-      <img width="758" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/a32b796c-ea9c-4d56-b94b-565a8a62ffc7">
+      <img width="758" height="220" alt="IMPL_3_5_3" src="https://github.com/user-attachments/assets/449b0cf7-e20b-4f2f-9251-777115a3921c" />
+
 
 - After, go back to your **BB_NPC** and press the button **"New Key"** and give it the following info:
   
-  <img width="638" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/bf33e612-b36d-4cd9-8381-6bf64412291f">
+  <img width="638" height="241" alt="IMPL_3_5_4" src="https://github.com/user-attachments/assets/623d4d1e-2ee9-4159-8081-6e4212b57c4b" />
+
 
 - After, go to your **BT_NPC**
     - Add the following graph by dragging out arrows from the bottom:
         - Be careful to put them in the same order, as the "Selector" works from left to right.
           
-          <img width="568" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/e4a48bca-53ea-47ed-825c-285eac2ef305">
+          <img width="568" height="461" alt="IMPL_3_5_5" src="https://github.com/user-attachments/assets/223d9a3e-bb35-4aa8-a176-3a3eab38f879" />
+
 
     - Then click on your task **"BTT_RoamingLocation"** and give it a wanted radius and the blackboard vector key you just made.
       
-      <img width="382" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/b2070c1c-cb91-4406-9889-152071b12307">
+      <img width="382" height="233" alt="IMPL_3_5_6" src="https://github.com/user-attachments/assets/07fce231-943d-4134-bc50-fe4bfea4b4e7" />
+
 
     - Then click on the **"MoveTo"** task and give it the same location vector key you gave to your custom task:
       
-      <img width="385" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/052a5d9a-7d9a-4f93-910e-a1bb4f03d3ac">
+      <img width="385" height="96" alt="IMPL_3_5_7" src="https://github.com/user-attachments/assets/33729669-22d5-405a-8136-70f83dfbe5e4" />
+
 
     - The wait node is my own preference; you may choose the time or to not use it in general.
 
@@ -488,19 +515,22 @@ I have deleted the pre-made functions/constructor in the files as these are not 
 - Inside your BB_NPC:
     - Add the following variables as bools:
       
-      ![image](https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/e7d27129-3040-4aea-a0a8-8cea8034f969)
+      <img width="201" height="68" alt="IMPL_3_6_1" src="https://github.com/user-attachments/assets/8e3c5163-d408-4bbe-a576-2c0e1d55de58" />
+
 
 - Inside your BT_NPC:
     - Add to the tree with the following behavior:
       
-      <img width="795" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/a49c367d-73e7-4e6b-97aa-24b62a981ed0">
+      <img width="795" height="507" alt="IMPL_3_6_2" src="https://github.com/user-attachments/assets/46474aba-574a-437d-a758-0412a8d0d6f0" />
+
 
     - The blue boxes are decorators on top of the sequences that each represent a different branch to go into.
 
 - Inside your project settings:
     - Change the basic classes to the custom ones you have made.
       
-      <img width="425" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/2ed16519-534c-4e32-ac4e-d7d8bc24eba2">
+      <img width="425" height="281" alt="IMPL_3_6_3" src="https://github.com/user-attachments/assets/53f157a5-0c7d-48a5-a163-d7d68062dc75" />
+
 
 
 ---
@@ -511,7 +541,8 @@ And that was all the work! Now some extra information on how it all ties togethe
 - How do the BT and the FSM work together?
     - As the NPC spawns and gets owned by its controller, it looks at the BT it has.
       
-      <img width="727" alt="image" src="https://github.com/Howest-DAE-GD/gpp-researchtopic-BauwkeS/assets/124317645/cd28a4f8-d664-4b85-a48d-5355479712c3">
+      <img width="727" height="480" alt="IMPL_3_7_1" src="https://github.com/user-attachments/assets/943c17bf-ead4-4cab-8549-1cd9c5a3b53d" />
+
 
     - As you can see here, the selector will either go one way or the other, depending on if the boolean "CanSeePlayer"is true or false.
         - If it is false, this means the NPC will keep looking at the sequence of finding a new point to walk to and waiting.
